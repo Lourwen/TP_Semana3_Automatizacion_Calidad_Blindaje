@@ -1,0 +1,43 @@
+
+#!/bin/sh
+
+echo "===================================="
+echo " PRE-COMMIT: AUDITORIA DE CALIDAD"
+echo "===================================="
+
+echo ""
+echo "[1/3] Formatter: Spotless"
+cmd.exe /c gradlew.bat spotlessApply
+if [ $? -ne 0 ]; then
+    echo "ERROR: fallo Spotless."
+    exit 1
+fi
+
+# Si el formateador modifico archivos, detener el commit
+# para que los cambios puedan revisarse y prepararse.
+git diff --quiet
+if [ $? -ne 0 ]; then
+    echo "ERROR: Spotless modifico archivos."
+    echo "Revisa los cambios, ejecuta git add y reintenta."
+    exit 1
+fi
+
+echo ""
+echo "[2/3] Linter: Checkstyle"
+cmd.exe /c gradlew.bat checkstyleMain checkstyleTest
+if [ $? -ne 0 ]; then
+    echo "ERROR: fallo Checkstyle."
+    exit 1
+fi
+
+echo ""
+echo "[3/3] Pruebas unitarias: JUnit"
+cmd.exe /c gradlew.bat test
+if [ $? -ne 0 ]; then
+    echo "ERROR: fallaron las pruebas unitarias."
+    exit 1
+fi
+
+echo ""
+echo "CALIDAD APROBADA: commit permitido."
+exit 0
