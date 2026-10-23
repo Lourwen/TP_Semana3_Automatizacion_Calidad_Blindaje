@@ -46,3 +46,4 @@ gradlew.bat test
 ```
 
 El informe de las actividades se encuentra en `informe.md`.
+Prueba de ejecucion del hook.
