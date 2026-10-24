@@ -1,0 +1,21 @@
+﻿EVIDENCIA: FALLO CONTROLADO DEL PRE-COMMIT
+
+Prueba realizada:
+Se agregó temporalmente la importación java.util.* en CalculadoraPrecios.java para provocar una infracción de Checkstyle.
+
+Resultado observado:
+[1/3] Formatter: Spotless
+BUILD SUCCESSFUL
+
+[2/3] Linter: Checkstyle
+ERROR: AvoidStarImport
+Regla incumplida: evitar importaciones con .*.
+Task :checkstyleMain FAILED
+BUILD FAILED
+ERROR: fallo Checkstyle.
+
+Resultado:
+El hook bloqueó el commit al fallar Checkstyle. La ejecución se detuvo antes de iniciar las pruebas unitarias de JUnit.
+
+Restauración:
+El archivo CalculadoraPrecios.java fue restaurado después de la prueba. La modificación temporal no forma parte de la entrega.
