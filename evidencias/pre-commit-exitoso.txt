@@ -1,0 +1,16 @@
+﻿EVIDENCIA: EJECUCION EXITOSA DEL PRE-COMMIT
+Commit: e92b0e3
+Mensaje: Documentar auditoria y automatizacion de calidad
+
+[1/3] Formatter: Spotless
+BUILD SUCCESSFUL
+
+[2/3] Linter: Checkstyle
+BUILD SUCCESSFUL
+
+[3/3] Pruebas unitarias: JUnit
+BUILD SUCCESSFUL
+
+CALIDAD APROBADA: commit permitido.
+
+Resultado: el hook ejecutó los tres controles en el orden esperado y permitió el commit.
