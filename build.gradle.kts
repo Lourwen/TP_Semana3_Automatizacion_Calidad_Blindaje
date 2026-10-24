@@ -3,6 +3,7 @@ plugins {
     id("java")
     id("com.diffplug.spotless") version "7.2.1"
     id("checkstyle")
+    id("jacoco")
 }
 
 group = "org.example"
