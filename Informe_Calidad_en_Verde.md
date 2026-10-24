@@ -17,7 +17,7 @@ El script verifica el resultado de cada etapa. Si un control falla, muestra un m
 
 Se comprobó el funcionamiento del hook mediante una ejecución exitosa y una prueba en la que se introdujo temporalmente una importación con comodín (`import java.util.*;`). Checkstyle detectó el incumplimiento de `AvoidStarImport`, mostró el mensaje `ERROR: fallo Checkstyle.` y bloqueó el commit. Luego se retiró la modificación de prueba y los controles volvieron a ejecutarse correctamente.
 
-El hook ayuda a mantener la calidad de los cambios antes de incorporarlos al historial. La protección efectiva de la rama principal requiere, además, configurar las restricciones correspondientes en la plataforma de repositorios.
+El hook ayuda a mantener la calidad de los cambios antes de incorporarlos al historial. Además, se configuró en GitHub una regla de protección para la rama master, que requiere integrar cambios mediante un Pull Request.
 
 ### 2. Auditoría estática
 
@@ -54,9 +54,10 @@ Ubicación del reporte HTML generado localmente: `build/reports/jacoco/test/html
 
 - **Repositorio:** https://github.com/Lourwen/TP_Semana3_Automatizacion_Calidad_Blindaje
 - **Issue:** #1 — TP Semana 3: Automatización de Calidad y Blindaje.
-- **Pull Request:** pendiente de creación y vinculación con el Issue #1.
 
-El Pull Request deberá incluir la referencia `Closes #1` para vincular el trabajo con el Issue correspondiente.
+- Pull Request: #2, abierto desde feature/semana3-calidad hacia master.
+
+- Issue asociado: #1. La descripción del Pull Request incluye la referencia Closes #1.
 
 ### 5. Evidencias de ejecución
 
@@ -66,7 +67,4 @@ El reporte de JaCoCo constituye la evidencia de cobertura. La salida de Gradle `
 
 ### 6. Conclusión
 
-El proyecto cuenta con un hook local que automatiza los controles de formato, análisis de estilo y pruebas unitarias, además de un reporte de cobertura generado con JaCoCo. La revisión del código permitió identificar una mejora de legibilidad y establecer una estrategia de revisión de dependencias.
-
-La finalización de la entrega requiere completar y verificar la trazabilidad mediante el Pull Request vinculado al Issue #1, reunir las evidencias de ejecución y comprobar la configuración de protección de la rama principal si corresponde.
-
+La entrega incluye las evidencias de ejecución del hook, el reporte de cobertura y el diagnóstico estático. La trazabilidad se documenta mediante el Pull Request #2 asociado al Issue #1, y se configuró una regla de protección para la rama principal master.
